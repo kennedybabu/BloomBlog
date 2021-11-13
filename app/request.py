@@ -1,6 +1,6 @@
 from app import app
 import urllib.request, json
-from .models import quote
+from .models import quote, blog 
 
 
 Quote = quote.Quote
@@ -20,8 +20,6 @@ def get_quotes():
       return response
 
 
-
-
 def process_results(response):
     '''
     function that processes the quote result
@@ -38,3 +36,7 @@ def process_results(response):
     new_quote = Quote(id, author, quote)
 
     return new_quote
+
+
+# def get_blog(id):
+#     if id == blog.id:
