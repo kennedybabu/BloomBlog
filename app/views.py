@@ -7,8 +7,8 @@ def index():
     '''
     View root page function that returns the index page and its data
     '''
-
-    return render_template('index.html')
+    title = 'Home, BlogBlossom'
+    return render_template('index.html', title = title)
 
 
 @app.route('/blog/<int:blog_id>')
