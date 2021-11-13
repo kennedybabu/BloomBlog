@@ -2,7 +2,7 @@ class Config:
     '''
     General configuration parent class
     '''
-    pass
+    QUOTE_BASE_URL = 'http://quotes.stormconsultancy.co.uk/quotes.json'
 
 
 

@@ -1,5 +1,6 @@
 from flask import render_template
 from app import app
+from .request import get_quotes
 
 
 @app.route('/')
@@ -7,8 +8,10 @@ def index():
     '''
     View root page function that returns the index page and its data
     '''
+    quote = get_quotes()
     title = 'Home, BlogBlossom'
-    return render_template('index.html', title = title)
+    print(quote)
+    return render_template('index.html', title = title, quote = quote)
 
 
 @app.route('/blog/<int:blog_id>')
