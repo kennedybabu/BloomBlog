@@ -1,3 +1,52 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap');
+
+
 h2 {
-    color: red;
+    color: black;
+}
+
+
+body {
+    font-family: 'Montserrat', sans-serif;
+}
+
+
+.intro {
+    min-height: 70vh;
+    min-width: 100vw;
+    background-image: url(https://images.unsplash.com/photo-1513519245088-0e12902e5a38?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1170&q=80);
+    background-position: center;
+    background-size: cover;
+    position: relative;
+}
+
+.navbar {
+    background-color: transparent;
+    border: none;
+}
+
+.navbar-brand {
+    font-weight: 700;
+    font-size: 2vw;
+    color: black;
+}
+
+.overlay {
+    position: absolute;
+    height: 80%;
+    width: 30%;
+    background-color: white;
+    top: 4rem;
+    left: 5rem;
+    padding: 2rem 4rem;
+    display: flex;
+    align-items: start;
+    justify-content: flex-start;
+    flex-direction: column;
+}
+
+.overlay p {
+    max-width: 60%;
+    font-weight: 300;
+    font-size: 15px;
 }
