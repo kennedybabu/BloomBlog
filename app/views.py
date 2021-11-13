@@ -9,3 +9,11 @@ def index():
     '''
 
     return render_template('index.html')
+
+
+@app.route('/blog/<int:blog_id>')
+def blog(blog_id):
+    '''
+    view blog page function that will return the blog item
+    '''
+    return render_template('blog.html', blog_id = blog_id)
