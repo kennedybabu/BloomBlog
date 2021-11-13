@@ -20,6 +20,8 @@ def get_quotes():
       return response
 
 
+
+
 def process_results(response):
     '''
     function that processes the quote result
@@ -30,7 +32,7 @@ def process_results(response):
        quote = response['quote']
     else:
         id = 1
-        auhtor = 'Mandela'
+        author = 'Mandela'
         quote = 'We are who we are'
 
     new_quote = Quote(id, author, quote)

@@ -50,6 +50,10 @@ body > div > div.navbar.navbar-inverse > div > div.navbar-header > h3 {
     color: black;
 }
 
+body > div > div.navbar.navbar-inverse > div > div.navbar-collapse.collapse > ul > li> a {
+    color: black;
+}
+
 body > div > div.navbar.navbar-inverse > div > div.navbar-collapse.collapse.in > ul > li > a {
     color: black;
 }
