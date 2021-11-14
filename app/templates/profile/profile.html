@@ -18,14 +18,31 @@
 
   <!--Display profile photo-->
   <div class="col-md-6">
-    <h3> {{user.username| capitalize}} </h3>
-    <div class="profile-image">
+
+    <div class="card user-card" style="width: 18rem;">
+        {% if user.profile_pic_path %}
+            <img src="{{url_for('static',filename=user.profile_pic_path)}}" alt="Card image cap" class="card-img-top img-thumbnail">
+        {%else%}
+        <p>No profile picture</p>
+        {% endif %}
+
+        <img  src="..." alt="Card image cap">
+        <div class="card-body">
+          <h5 class="card-title">{{user.username| capitalize}}</h5>
+          <p class="card-text">{{ user.bio }}</p>
+          <a href="#" class="btn btn-primary">Go somewhere</a>
+        </div>
+      </div>
+
+    <!-- <h3> {{user.username| capitalize}} </h3>
         {% if user.profile_pic_path %}
             <img src="{{url_for('static',filename=user.profile_pic_path)}}" alt="" class="img-thumbnail">
         {%else%}
-    </div>
-    <p>No profile picture</p>
-    {% endif %}
+        <p>No profile picture</p>
+        {% endif %}
+
+        <div class="profile-image"> -->
+
   </div>
 </div>
 </div>

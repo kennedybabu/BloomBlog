@@ -134,3 +134,7 @@ body > div > div.navbar.navbar-inverse > div > div.navbar-collapse.collapse.in >
     background-position: center;
     background-size: cover;
 }
+
+.user-card {
+    padding: 2rem;
+}
