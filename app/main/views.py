@@ -37,9 +37,16 @@ def create_blog():
         db.session.commit()
 
         flash('blog created')
-        return redirect(url_for('blog.show_blogs'))
+        return redirect(url_for('main.show_blogs'))
 
     return render_template('create_blog.html', form = form)
+
+
+@main.route('/blogs')
+def show_blogs():
+    blogs = Blog.query.order_by(Blog.posted.desc())
+
+    return render_template('show_blogs.html', blogs = blogs)
 
 
 @main.route('/blog/comment/new/<int:id>', methods=['GET', 'POST'])

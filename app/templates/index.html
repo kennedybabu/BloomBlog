@@ -19,7 +19,7 @@
              alias temporibus fugiat, voluptates dolor dolorum 
              modi. Quo dolorem veniam officia tenetur.</p>
 
-        <a href="/" class="btn btn-outline-dark">subscribe</a>
+        <a href="{{ url_for('auth.register') }}" class="btn btn-outline-dark">subscribe</a>
 
         </div>
     </div>
@@ -68,7 +68,7 @@
             <div class="quote-section col-md-4">
                 <div class="quote">
                     <p>"{{ quote.quote }}"</p>
-                    <h4>Author: <i>{{ quote.author }}</i></h4>
+                    <h4>author: <i>{{ quote.author }}</i></h4>
                 </div>
             </div>
         </div>

@@ -24,6 +24,15 @@ body {
     position: relative;
 }
 
+.intro-profile {
+    min-height: 70vh;
+    max-width: 100vw;
+    background-color: rgb(182, 196, 195);
+    background-position: center;
+    background-size: cover;
+    position: relative;
+}
+
 
 .intro a {
     color: whitesmoke;
@@ -34,6 +43,7 @@ body {
 .navbar {
     background-color: transparent;
     border: none;
+    padding: 0 6rem;
 }
 
 .navbar-brand {
@@ -110,4 +120,8 @@ body > div > div.navbar.navbar-inverse > div > div.navbar-collapse.collapse.in >
     font-weight: 400;
     font-size: 20px;
     margin-top: 3rem;
+}
+
+.quote h4 {
+    font-weight: 600;
 }
