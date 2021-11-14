@@ -34,12 +34,14 @@ body {
 }
 
 
-.intro a {
+.intro a, .btn-outline-dark {
     color: whitesmoke;
     background-color: black;
     border-radius: 0;
 
 }
+
+ 
 .navbar {
     background-color: transparent;
     border: none;
@@ -136,4 +138,6 @@ body > div > div.navbar.navbar-inverse > div > div.navbar-collapse.collapse.in >
 
 .user-card {
     padding: 2rem;
+    min-width: 100px;
+    min-height: 150px;
 }

@@ -13,3 +13,7 @@ class BlogForm(FlaskForm):
     blog_content = TextAreaField("what's your blog all about...", validators=[InputRequired()])
     category = RadioField('pick a category where blog falls into', validators=[InputRequired()], choices=[('lifestyle'), ('food'), ('travel'), ('fashion')])
     submit = SubmitField('create blog')
+
+class UpdateProfile(FlaskForm):
+    bio = TextAreaField('tell people about yourself...')
+    submit = SubmitField('submit')

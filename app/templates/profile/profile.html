@@ -9,14 +9,15 @@
 {% block content %}
 <div class="container intro-profile">
 <div class="row">
-<!-- displaying  Username-->
   <div class="col-md-6 left">
     <div class="overlay" style="min-width: 17rem;">
         <h4>Houston! We have lift off!</h4>
+        <p>Lorem ipsum dolor sit amet consectetur 
+            adipisicing elit. Autem reiciendis 
+            numquam eligendi provident repudiandae.</p>
     </div>    
   </div>
 
-  <!--Display profile photo-->
   <div class="col-md-6">
 
     <div class="card user-card" style="width: 18rem;">
@@ -26,22 +27,27 @@
         <p>No profile picture</p>
         {% endif %}
 
-        <img  src="..." alt="Card image cap">
         <div class="card-body">
           <h5 class="card-title">{{user.username| capitalize}}</h5>
           <p class="card-text">{{ user.bio }}</p>
-          <a href="#" class="btn btn-primary">Go somewhere</a>
-        </div>
-      </div>
-
-    <!-- <h3> {{user.username| capitalize}} </h3>
-        {% if user.profile_pic_path %}
-            <img src="{{url_for('static',filename=user.profile_pic_path)}}" alt="" class="img-thumbnail">
+        {% if user.bio %}
+            <p> {{user.bio}}</p>
         {%else%}
-        <p>No profile picture</p>
+             <p> {{user.username| capitalize}} has no bio </p>
         {% endif %}
 
-        <div class="profile-image"> -->
+        {% if user == current_user %}
+            <a class="btn btn-outline-dark" href="{{url_for('main.update_profile',uname=user.username)}}">Edit profile</a>
+        {% endif %}
+        </div>
+    </div>
+
+    {% if user == current_user %}
+        <form  action="{{url_for('main.update_pic',uname=user.username)}}" method="post" enctype = "multipart/form-data">
+            <input type="file"  name="photo" class="form-control" required>
+            <input type="submit">
+        </form>
+    {% endif %}
 
   </div>
 </div>
