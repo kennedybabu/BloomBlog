@@ -11,14 +11,24 @@
            
             {% for blog in blogs %}
             <hr>
+              <div class="item">
                 <h4 class='title'>{{ blog.title }}</h4>
                 <p> {{ blog.blog_content | truncate(300)}}</p>   
                 <p>{{ blog.author_id }}</p>
                 {% if current_user.id == blog.author.id %}
-                <div style="position: absolute; top:40px;left: 10px;">
-                    <a href="{{ url_for('main.update_blog',title = blog.title)}}" class="btn btn-secondary">Update Blog</a>
-                </div>
+                    <p>{{ current_user.username }}</p>
                 {% endif %}
+
+                <!-- {% if current_user.id == blog.author.id %}
+                    <div style="position: absolute; top:40px;left: 10px;">
+                        <a href="{{ url_for('main.update_blog',title = blog.title)}}" class="btn btn-secondary">Update Blog</a>
+                    </div>
+                {% endif %} -->
+
+                {% if current_user.id == blog.author.id %}
+                    <a href="{{url_for('main.delete_blog',title = blog.title)}}" class="btn btn-danger">Delete Blog</a> 
+                {% endif %}
+              </div>
             <hr>            
             {% endfor %}
         </div>

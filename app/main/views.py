@@ -117,4 +117,17 @@ def update_pic(uname):
 
     return redirect(url_for('main.profile', uname = uname))
 
+@main.route('/blog/delete/<title>')
+@login_required
+def delete_blog(title):
+    '''
+    Function that will delete a blog
+    '''
+    blog = Blog.query.filter_by(title = title ).first()
+
+    db.session.delete(blog)
+    db.session.commit()
+
+    return redirect(url_for('main.show_blogs'))
+
 
