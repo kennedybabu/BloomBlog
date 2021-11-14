@@ -1,8 +1,8 @@
-from flask import render_template, request, redirect, url_for, flash
+from flask import render_template, request, redirect, url_for, flash, abort
 from . import main
 from ..request import get_quotes
 from app import db
-from ..models import Blog, Comment
+from ..models import Blog, Comment, User
 from .forms import CommentForm, BlogForm
 from flask_login import login_required, current_user
 
@@ -13,7 +13,6 @@ def index():
     '''
     quote = get_quotes()
     title = 'Home, BlogBlossom'
-    print(quote)
     return render_template('index.html', title = title, quote = quote)
 
 
@@ -27,6 +26,7 @@ def blog(id):
 
 
 @main.route('/create_blog', methods=['GET', 'POST'])
+@login_required
 def create_blog():
     
     form = BlogForm()
