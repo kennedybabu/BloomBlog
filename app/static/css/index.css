@@ -73,13 +73,14 @@ body > div > div.navbar.navbar-inverse > div > div.navbar-collapse.collapse.in >
 }
 
 .overlay p {
-    max-width: 70%;
+    width: auto;
     font-weight: 300;
     font-size: 15px;
 }
 
 .more {
     margin-top: 5rem;
+    max-width: 80vw;
 }
 
 .card {

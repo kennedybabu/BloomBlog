@@ -1,14 +1,10 @@
-from flask import render_template
-from app import app
-from .request import get_quotes
-from .models import comments
+from flask import render_template, request, redirect, url_for
+from . import main
+from ..request import get_quotes
+from ..models import Comment
 from .forms import CommentForm
 
-
-Comment = comments.Comment
-
-
-@app.route('/')
+@main.route('/')
 def index():
     '''
     View root page function that returns the index page and its data
@@ -19,16 +15,16 @@ def index():
     return render_template('index.html', title = title, quote = quote)
 
 
-@app.route('/blog/<int:blog_id>')
-def blog(blog_id):
+@main.route('/blog/<int:id>')
+def blog(id):
     '''
     view blog page function that will return the blog item
     '''
-    return render_template('blog.html', blog_id = blog_id)
+    # blog = get_blog
+    return render_template('blog.html', blog_id = id)
 
-@app.route('/')
 
-@app.route('/blog/comment/new/<int:id>', methods=['GET', 'POST'])
+@main.route('/blog/comment/new/<int:id>', methods=['GET', 'POST'])
 def new_comment(id):
     form = CommentForm()
 
