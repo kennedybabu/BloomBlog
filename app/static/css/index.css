@@ -87,6 +87,7 @@ body > div > div.navbar.navbar-inverse > div > div.navbar-collapse.collapse.in >
     margin-top: 3rem;
     padding-bottom: 2rem;
     border-radius: 15px;
+    height: auto;
 
 
     box-shadow: -8px 9px 17px -5px rgba(0,0,0,0.18);

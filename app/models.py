@@ -18,6 +18,7 @@ class User(db.Model):
 
     id = db.Column(db.Integer, primary_key=True)
     username = db.Column(db.String(255))
+    pass_secure = db.Column(db.String(255))
     blogs = db.relationship('Blog', backref='author', lazy='dynamic')
     comment = db.relationship('Comment', backref='author',lazy='dynamic')
 
