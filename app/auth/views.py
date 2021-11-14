@@ -3,6 +3,7 @@ from wtforms import StringField, TextAreaField, SubmitField, RadioField
 from wtforms import validators
 from . import auth
 from .. import db
+from ..email import mail_message
 from ..models import User
 from flask_wtf import FlaskForm
 from wtforms.validators import InputRequired
@@ -18,11 +19,14 @@ def register():
         db.session.add(user)
         db.session.commit()
 
+        mail_message('Welcome to the BlogBlossom family', "email/welcome_user", user.email, user=user)
 
         return redirect(url_for('auth.login'))
-        title = 'New Account'      
-    
+        title = 'New Account'
+
     return render_template('auth/register.html', form = form)
+         
+    
 
 @auth.route('/login', methods = ['GET', 'POST'])
 def login():

@@ -1,6 +1,7 @@
 from flask import render_template, request, redirect, url_for, flash, abort
 from . import main
 from ..request import get_quotes
+from ..email import mail_message
 from app import db, photos
 from ..models import Blog, Comment, User
 from .forms import CommentForm, BlogForm, UpdateProfile
@@ -16,13 +17,23 @@ def index():
     return render_template('index.html', title = title, quote = quote)
 
 
-@main.route('/blog/<int:id>')
-def blog(id):
+@main.route('/<title>', methods=['GET','POST'])
+def blog(title):
     '''
     view blog page function that will return the blog item
     '''
-    # blog = get_blog
-    return render_template('blog.html', blog_id = id)
+    form = CommentForm()
+    blog = Blog.query.filter_by(title = title).first()
+    comments = blog
+
+    if form.validate_on_submit():
+        comment = Comment(comment = form.comment.data, author_id = current_user.id, blog_id = blog.id)
+        db.session.add(comment)
+        db.session.commit()
+
+        return redirect(url_for('main.blog', title = title))
+
+    return render_template('main.blog.html', blog = blog, form = form, comments = comments)
 
 
 @main.route('/create_blog', methods=['GET', 'POST'])
