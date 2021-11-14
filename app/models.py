@@ -1,3 +1,6 @@
+from . import db
+from datetime import  datetime
+
 class Quote:
     '''
     Quote class to define Quote objects
@@ -9,52 +12,45 @@ class Quote:
         self.quote = quote
 
 
-class Comment:
-    all_comments = []
 
-    def __init__(self, id, blog_id, comment):
-        self.id = id
-        self.blog = blog_id
-        self.comment = comment
+class User(db.Model):
+    __tablename__ = 'users'
 
-    def save_comment(self):
-        Comment.all_comments.append(self)
+    id = db.Column(db.Integer, primary_key=True)
+    username = db.Column(db.String(255))
+    blogs = db.relationship('Blog', backref='author', lazy='dynamic')
+    comment = db.relationship('Comment', backref='author',lazy='dynamic')
 
-    @classmethod
-    def clear_comments(cls):
-        Comment.all_comments.clear()
-
-    @classmethod
-    def get_comments(cls, id):
-
-        response = []
-
-        for comment in cls.all_comments:
-            if Comment.blog_id == id:
-                response.append(comment)
-
-        return response
+    def __repr__(self):
+        return f'User {self.username}'
 
 
-class Blog:
+
+class Comment(db.Model):
+    __tablename__ = 'comments'
+
+    id = db.Column(db.Integer, primary_key=True)
+    comment_content = db.Column(db.String(255))
+    blog_id = db.Column(db.Integer, db.ForeignKey('blogs.id'))
+    author_id = db.Column(db.Integer, db.ForeignKey('users.id'))
+
+    def __repr__(self):
+        return f'Comment {self.comment_content}'
+ 
+
+class Blog(db.Model):
+    __tablename__ = 'blogs'
+
+    id = db.Column(db.Integer, primary_key=True)
+    title = db.Column(db.String(255))
+    blog_content = db.Column(db.String())
+    posted = db.Column(db.DateTime, default=datetime.utcnow)
+    author_id = db.Column(db.Integer, db.ForeignKey('users.id'))
+    comments = db.relationship('Comment', backref='blog', lazy='dynamic')
+
+
+    def __repr__(self):
+        return self.title
     
-    all_blogs=[]
+    
 
-    def __init__(self, id, title, author, description):
-        self.id = id
-        self.title = title
-        self.author = author
-        self.description = description
-
-    def save_blogs(self):
-        Blog.all_blogs.append(self)
-
-    @classmethod
-    def get_blogs(cls, id):
-
-        response =[]
-
-        for blog in cls.all_blogs:
-            if Blog.blog_id == id:
-                response.append(blog)
-        return response
