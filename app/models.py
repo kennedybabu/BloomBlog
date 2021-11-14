@@ -26,6 +26,7 @@ class User(UserMixin, db.Model):
     blogs = db.relationship('Blog', backref='author', lazy='dynamic')
     comment = db.relationship('Comment', backref='author',lazy='dynamic')
     profile_pic_path = db.Column(db.String())
+    bio = db.Column(db.String(255))
 
     @property
     def password(self):

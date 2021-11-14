@@ -90,6 +90,10 @@ body > div > div.navbar.navbar-inverse > div > div.navbar-collapse.collapse.in >
     font-size: 15px;
 }
 
+.overlay h4 {
+    font-weight: 600;
+}
+
 .more {
     margin-top: 5rem;
     max-width: 80vw;
@@ -140,4 +144,8 @@ body > div > div.navbar.navbar-inverse > div > div.navbar-collapse.collapse.in >
     padding: 2rem;
     min-width: 100px;
     min-height: 150px;
+}
+
+.title {
+    font-weight: 500;
 }

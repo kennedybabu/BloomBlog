@@ -7,8 +7,20 @@
 
 {% block content %}
    <div class="container">
-    {% for blog in blogs %}
-        <p>{{ blog.title }}</p>
-    {% endfor %}
+        <div class="col-md-6 mx-auto justify-content-center">
+           
+            {% for blog in blogs %}
+            <hr>
+                <h4 class='title'>{{ blog.title }}</h4>
+                <p> {{ blog.blog_content | truncate(300)}}</p>   
+                <p>{{ blog.author_id }}</p>
+                {% if current_user.id == blog.author.id %}
+                <div style="position: absolute; top:40px;left: 10px;">
+                    <a href="{{ url_for('main.update_blog',title = blog.title)}}" class="btn btn-secondary">Update Blog</a>
+                </div>
+                {% endif %}
+            <hr>            
+            {% endfor %}
+        </div>
    </div>
 {% endblock %}

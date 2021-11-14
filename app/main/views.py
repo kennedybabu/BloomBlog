@@ -45,7 +45,7 @@ def create_blog():
 @login_required
 def update_blog(title):
     blog = Blog.query.filter_by(title = title).first()
-    form = BlogForm
+    form = BlogForm()
 
     if form.validate_on_submit():
         title = form.title.data
@@ -57,7 +57,7 @@ def update_blog(title):
         flash('blog updated')
         return redirect(url_for('main.show_blogs', author_id = author_id, blog_content = blog_content))
 
-    return render_template('main.update_blog.html', form = form)
+    return render_template('auth.update_blog.html', form = form)
 
 
 @main.route('/blogs')
@@ -70,6 +70,10 @@ def show_blogs():
 @main.route('/blog/comment/new/<int:id>', methods=['GET', 'POST'])
 def new_comment(id):
     form = CommentForm()
+    if form.validate_on_submit():
+        comment = Comment(comment_content = form.comment_content.data)
+        new_comment = Comment.save_comment()
+        return redirect(url_for('blog', id = blog.id))
 
     return render_template('new_comment.html', form = form)
 
