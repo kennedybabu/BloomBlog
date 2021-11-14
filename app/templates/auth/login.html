@@ -8,10 +8,15 @@
 
 {% block content %}   
 
-<div class="container tray"> 
+<div class="container"> 
   <div class="row">
-    <div class= "col-md-2"> </div>
-    <div class="col-md-8">
+    <div class= "col-md-6 left">
+      <div class="overlay">
+        <h4>let's go run with tigers and bears</h4>
+        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Consequuntur, laborum.</p>
+      </div>
+    </div>
+    <div class="col-md-6">
     <!--Flash message -->
     {% for message in get_flashed_messages() %}
       <div class="alert alert-danger">
@@ -23,7 +28,6 @@
     {{wtf.quick_form(login_form)}}
     <p> Don't have an account? <a href="{{url_for('auth.register')}}">Sign up here</a></p>
    </div>
-   <div clas="col-md-2"> </div>
   </div>
 </div>
 

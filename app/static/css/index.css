@@ -27,7 +27,7 @@ body {
 .intro-profile {
     min-height: 70vh;
     max-width: 100vw;
-    background-color: rgb(182, 196, 195);
+    /* background-color: rgb(182, 196, 195); */
     background-position: center;
     background-size: cover;
     position: relative;
@@ -124,4 +124,13 @@ body > div > div.navbar.navbar-inverse > div > div.navbar-collapse.collapse.in >
 
 .quote h4 {
     font-weight: 600;
+}
+
+.left {
+    /* background-color: chartreuse; */
+    min-height: 70vh;
+    max-width: 100vw;
+    background-image: url(https://images.unsplash.com/photo-1513519245088-0e12902e5a38?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1170&q=80);
+    background-position: center;
+    background-size: cover;
 }
