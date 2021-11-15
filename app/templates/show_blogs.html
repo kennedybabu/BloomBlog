@@ -15,14 +15,7 @@
                 <h4 class='title'>{{ blog.title }}</h4>
                 <p> {{ blog.blog_content | truncate(300)}}</p>   
                 <p>{{ blog.author }}</p>  
-                <p> created: {{ blog.posted }}</p> 
-                {% for date in posted %}
-
-                    {{ date.strftime('%Y-%m-%d') }}
-
-                {% endfor %} 
-                <p> {{ blog.category }}</p>          
-
+                <p> created: {{ blog.posted.strftime('%Y-%m-%d') }}</p>               
 
                 {% if current_user.id == blog.author.id %}
                     <a href="{{url_for('main.delete_blog',title = blog.title)}}" class="btn btn-danger">Delete Blog</a> 
