@@ -34,7 +34,7 @@ def process_results(response):
     else:
         id = 1
         author = 'Mandela'
-        quote = 'We are who we are'
+        quote = 'We are who we think we are'
 
     new_quote = Quote(id, author, quote)
 
