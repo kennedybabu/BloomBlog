@@ -41,6 +41,10 @@ body {
 
 }
 
+.btn {
+    border-radius: 0;
+}
+
  
 .navbar {
     background-color: transparent;
